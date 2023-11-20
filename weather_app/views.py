@@ -1,4 +1,5 @@
 import datetime
+from datetime import datetime
 import requests
 
 from django.shortcuts import render
@@ -48,7 +49,7 @@ def fetch_weather_and_forecast(city, api_key, current_weather_url, forecast_url)
 
     weather_data = {
         "city": city,
-        "tempature": round(response["main"]["temp"] - 273.15, 2),
+        "temperature": round(response["main"]["temp"] - 273.15, 2),
         "description": response["weather"][0]["description"],
         "icon": response["weather"][0]["icon"],
     }
@@ -56,10 +57,13 @@ def fetch_weather_and_forecast(city, api_key, current_weather_url, forecast_url)
     daily_forecasts = []
     for day in forecast_response["list"]:
         if day["dt_txt"].split()[1] == "12:00:00":
+            date_str = day["dt_txt"].split()[0]
+            datetime_obj = datetime.strptime(date_str, "%Y-%m-%d")
+            
             daily_forecasts.append(
                 {
-                    "date": day["dt_txt"].split()[0],
-                    "tempature": round(day["main"]["temp"] - 273.15, 2),
+                    "date": datetime_obj.strftime("%m-%d"),  # Format to display month and day
+                    "temperature": round(day["main"]["temp"] - 273.15, 2),
                     "description": day["weather"][0]["description"],
                     "icon": day["weather"][0]["icon"],
                 }

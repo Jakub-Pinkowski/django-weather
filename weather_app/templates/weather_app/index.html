@@ -31,7 +31,7 @@
                     {% for forecast in daily_forecasts1 %}
                     <div class="forecast">
                         <h3>{{ forecast.date }}</h3>
-                        <p>{{ forecast.tempature }}°C</p>
+                        <p>{{ forecast.temperature }}°C</p>
                         <p>{{ forecast.description }}</p>
                         <img
                             src="http://openweathermap.org/img/w/{{ forecast.icon }}.png"
@@ -57,7 +57,7 @@
                     {% for forecast in daily_forecasts2 %}
                     <div class="forecast">
                         <h3>{{ forecast.date }}</h3>
-                        <p>{{ forecast.tempature }}°C</p>
+                        <p>{{ forecast.temperature }}°C</p>
                         <p>{{ forecast.description }}</p>
                         <img
                             src="http://openweathermap.org/img/w/{{ forecast.icon }}.png"

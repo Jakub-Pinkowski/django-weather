@@ -1,8 +1,9 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
     text-align: center;
     padding: 50px;
+    margin: 0;
 }
 
 form {
@@ -10,39 +11,74 @@ form {
 }
 
 input[type='text'] {
-    padding: 5px;
-    border: 1px solid #ccc;
+    padding: 10px;
+    border: 1px solid #ced4da;
     border-radius: 5px;
+    margin-right: 10px;
+    width: 200px;
 }
 
 button {
-    background-color: #4caf50;
+    background-color: #28a745;
     color: white;
-    padding: 5px 10px;
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.comparison-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.city-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    width: calc(50% - 40px);
+    box-sizing: border-box;
+}
+
+@media (max-width: 767px) {
+    .city-container {
+        width: calc(50% - 40px);
+    }
+}
+
+@media (max-width: 480px) {
+    .city-container {
+        width: 100%;
+    }
 }
 
 .forecast-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 
 .forecast {
     background-color: #fff;
-    border-radius: 5px;
+    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 10px;
     margin: 10px;
-    width: calc(100% / 5 - 20px);
+    width: calc(22% - 40px);
     box-sizing: border-box;
 }
 
 @media (max-width: 767px) {
     .forecast {
-        width: calc(50% - 20px);
+        width: calc(33.33% - 40px);
     }
 }
 
