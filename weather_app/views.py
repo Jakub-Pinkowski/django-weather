@@ -63,7 +63,7 @@ def fetch_weather_and_forecast(city, api_key, current_weather_url, forecast_url)
             daily_forecasts.append(
                 {
                     "date": datetime_obj.strftime("%m-%d"),  # Format to display month and day
-                    "temperature": round(day["main"]["temp"] - 273.15, 2),
+                    "temperature": round(day["main"]["temp"] - 273.15, 0),
                     "description": day["weather"][0]["description"],
                     "icon": day["weather"][0]["icon"],
                 }

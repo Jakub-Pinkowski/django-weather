@@ -1,6 +1,6 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f9fa;
+    background-color: #edede9;
     text-align: center;
     padding: 50px;
     margin: 0;
@@ -12,14 +12,14 @@ form {
 
 input[type='text'] {
     padding: 10px;
-    border: 1px solid #ced4da;
+    border: 1px solid #2a9d8f;
     border-radius: 5px;
     margin-right: 10px;
     width: 200px;
 }
 
 button {
-    background-color: #28a745;
+    background-color: #2a9d8f;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -29,7 +29,7 @@ button {
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #264653;
 }
 
 .comparison-container {
@@ -39,7 +39,7 @@ button:hover {
 }
 
 .city-container {
-    background-color: #fff;
+    background-color: #e9c46a;
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -67,7 +67,7 @@ button:hover {
 }
 
 .forecast {
-    background-color: #fff;
+    background-color: #e9c46a;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 10px;
