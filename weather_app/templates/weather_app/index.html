@@ -15,15 +15,24 @@
             <button type="submit">Compare Weather</button>
         </form>
 
+        <pre>
+            {% if weather_data1 %}
+                Weather Data 1: {{ weather_data1|safe }}
+            {% endif %}
+            {% if daily_forecasts1 %}
+                Daily Forecasts 1: {{ daily_forecasts1|safe }}
+            {% endif %}
+        </pre>
+
         <div class="comparison-container">
             {% if weather_data1 %}
             <div class="city-container">
-                {% include 'weather_app/city_weather.html' with weather_data=weather_data1
+                {% include 'city_weather.html' with weather_data=weather_data1
                 daily_forecasts=daily_forecasts1 %}
             </div>
             {% endif %} {% if weather_data2 %}
             <div class="city-container">
-                {% include 'weather_app/city_weather.html' with weather_data=weather_data2
+                {% include 'city_weather.html' with weather_data=weather_data2
                 daily_forecasts=daily_forecasts2 %}
             </div>
             {% endif %}
