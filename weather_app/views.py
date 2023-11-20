@@ -21,7 +21,6 @@ def index(request):
         weather_data1, daily_forecasts1 = fetch_weather_and_forecast(
             city1, API_KEY, current_weather_url, forecast_url
         )
-        print(weather_data1)
 
         if city2:
             weather_data2, daily_forecasts2 = fetch_weather_and_forecast(

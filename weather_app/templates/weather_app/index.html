@@ -15,25 +15,58 @@
             <button type="submit">Compare Weather</button>
         </form>
 
-        <pre>
-            {% if weather_data1 %}
-                Weather Data 1: {{ weather_data1|safe }}
-            {% endif %}
-            {% if daily_forecasts1 %}
-                Daily Forecasts 1: {{ daily_forecasts1|safe }}
-            {% endif %}
-        </pre>
-
         <div class="comparison-container">
             {% if weather_data1 %}
             <div class="city-container">
-                {% include 'city_weather.html' with weather_data=weather_data1
-                daily_forecasts=daily_forecasts1 %}
+                <h1>{{ weather_data1.city }}</h1>
+                <h2>{{ weather_data1.temperature }}°C</h2>
+                <p>{{ weather_data1.description }}</p>
+                <img
+                    src="http://openweathermap.org/img/w/{{ weather_data1.icon }}.png"
+                    alt="{{ weather_data1.description }}"
+                />
+                {% if daily_forecasts1 %}
+                <h2>5-Day Forecast</h2>
+                <div class="forecast-container">
+                    {% for forecast in daily_forecasts1 %}
+                    <div class="forecast">
+                        <h3>{{ forecast.date }}</h3>
+                        <p>{{ forecast.tempature }}°C</p>
+                        <p>{{ forecast.description }}</p>
+                        <img
+                            src="http://openweathermap.org/img/w/{{ forecast.icon }}.png"
+                            alt="{{ forecast.description }}"
+                        />
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
             </div>
             {% endif %} {% if weather_data2 %}
             <div class="city-container">
-                {% include 'city_weather.html' with weather_data=weather_data2
-                daily_forecasts=daily_forecasts2 %}
+                <h1>{{ weather_data2.city }}</h1>
+                <h2>{{ weather_data2.temperature }}°C</h2>
+                <p>{{ weather_data2.description }}</p>
+                <img
+                    src="http://openweathermap.org/img/w/{{ weather_data2.icon }}.png"
+                    alt="{{ weather_data2.description }}"
+                />
+                {% if daily_forecasts2 %}
+                <h2>5-Day Forecast</h2>
+                <div class="forecast-container">
+                    {% for forecast in daily_forecasts2 %}
+                    <div class="forecast">
+                        <h3>{{ forecast.date }}</h3>
+                        <p>{{ forecast.tempature }}°C</p>
+                        <p>{{ forecast.description }}</p>
+                        <img
+                            src="http://openweathermap.org/img/w/{{ forecast.icon }}.png"
+                            alt="{{ forecast.description }}"
+                        />
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
             </div>
             {% endif %}
         </div>
