@@ -26,4 +26,15 @@ def fetch_weather_and_forecast(city, api_key, current_weather_url, forecast_url)
         "city": city,
         "tempature": round(response['main']['temp'] - 273.15, 2),
         "description": response['weather'][0]['description'],
+        "icon": response['weather'][0]['icon'],
     }
+
+    daily_forecast = []
+    for day in forecast_response['list']:
+        if day['dt_txt'].split()[1] == "12:00:00":
+            daily_forecast.append({
+                "date": day['dt_txt'].split()[0],
+                "tempature": round(day['main']['temp'] - 273.15, 2),
+                "description": day['weather'][0]['description'],
+                "icon": day['weather'][0]['icon'],
+            })
