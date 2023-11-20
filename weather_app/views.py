@@ -29,16 +29,14 @@ def index(request):
         else:
             weather_data2, daily_forecast2 = None, None
 
-        return render(
-            request,
-            "weather_app/index.html",
-            {
-                "weather_data1": weather_data1,
-                "daily_forecast1": daily_forecast1,
-                "weather_data2": weather_data2,
-                "daily_forecast2": daily_forecast2,
-            },
-        )
+        context: {
+            "weather_data1": weather_data1,
+            "daily_forecast1": daily_forecast1,
+            "weather_data2": weather_data2,
+            "daily_forecast2": daily_forecast2,
+        }
+
+        return render(request, "weather_app/index.html", context)
     else:
         return render(request, "weather_app/index.html")
 
@@ -55,10 +53,10 @@ def fetch_weather_and_forecast(city, api_key, current_weather_url, forecast_url)
         "icon": response["weather"][0]["icon"],
     }
 
-    daily_forecast = []
+    daily_forecasts = []
     for day in forecast_response["list"]:
         if day["dt_txt"].split()[1] == "12:00:00":
-            daily_forecast.append(
+            daily_forecasts.append(
                 {
                     "date": day["dt_txt"].split()[0],
                     "tempature": round(day["main"]["temp"] - 273.15, 2),
@@ -66,3 +64,5 @@ def fetch_weather_and_forecast(city, api_key, current_weather_url, forecast_url)
                     "icon": day["weather"][0]["icon"],
                 }
             )
+
+    return weather_data, daily_forecasts
